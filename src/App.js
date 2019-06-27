@@ -1,28 +1,30 @@
-import React, {Component} from 'react'
-import logo from './logo.svg'
-import './App.css'
+import React, { Component } from "react";
+import Select from "react-select";
+import "./App.css";
+
+const fruits = [
+  { label: "Papaya", value: "papaya" },
+  { label: "Apple", value: "apple" }
+];
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <label htmlFor="selectInput">Select a fruit</label>
+
+        <Select
+          autoFocus={this.props.autoFocus}
+          id="selectInput"
+          options={fruits}
+        />
       </div>
-    )
+    );
   }
 }
 
-export default App
+App.defaultProps = {
+  autoFocus: false
+};
+
+export default App;
